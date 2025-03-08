@@ -5,9 +5,9 @@ public class WalkThread extends Thread {
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        for (int i = 0; i < n; i++) {
-            System.out.println(i);
+     //   int n = scanner.nextInt();
+        for (int i = 0; i < 100; i++) {
+            System.out.println("walk thread " + i);
         }
     }
 

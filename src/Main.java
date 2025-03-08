@@ -5,13 +5,22 @@ public class Main {
 
        T1Runnable t1 = new T1Runnable();
        T1Thread t2 = new T1Thread(t1);
+       Thread walkMin = new Thread(new WalkThread(), "Min");
+       Thread talkMax = new Thread(new TalkThread(), "Max");
+
+       walkMin.setPriority(Thread.MIN_PRIORITY);
+       talkMax.setPriority(Thread.MAX_PRIORITY);
+
+       walkMin.start();
+       talkMax.start();
+
    //    t2.start();
 
        Thread [] t3 = new Thread[5];
 
        String [] threads = {"Thread1","Thread2", "Thread3", "Thread4", "Thread5"};
 
-       for (int i=0; i<5; i++)
+/*       for (int i=0; i<5; i++)
        {
            t3[i] = new Thread(new T2Runnable(threads[i]));
            t3[i].start();
@@ -25,7 +34,7 @@ public class Main {
        } catch (InterruptedException e) {
            e.printStackTrace();
        }
-
+*/
  /*      try
        {
            t2.join();
