@@ -1,0 +1,41 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+   public static void main(String[] args) {
+
+       T1Runnable t1 = new T1Runnable();
+       T1Thread t2 = new T1Thread(t1);
+   //    t2.start();
+
+       Thread [] t3 = new Thread[5];
+
+       String [] threads = {"Thread1","Thread2", "Thread3", "Thread4", "Thread5"};
+
+       for (int i=0; i<5; i++)
+       {
+           t3[i] = new Thread(new T2Runnable(threads[i]));
+           t3[i].start();
+       }
+
+       try {
+           Thread.sleep(2000);
+           for (int i = 0; i < 5; i++) {
+               t3[i].interrupt();
+           }
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+       }
+
+ /*      try
+       {
+           t2.join();
+
+       } catch (InterruptedException e) {
+           e.printStackTrace();
+       }
+
+       System.out.println("Родительский поток завершен после потока T1Thread");
+*/
+    }
+
+}
