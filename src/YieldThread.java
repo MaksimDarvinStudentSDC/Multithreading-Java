@@ -3,7 +3,7 @@ public class YieldThread extends Thread{
     public void run()
     {
         for (int i = 0; i < 100; i++) {
-            System.out.println("Without yield thread " + i);
+            System.out.println("Yield thread " + i);
             Thread.yield();
         }
 
