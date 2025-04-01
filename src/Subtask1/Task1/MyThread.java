@@ -1,6 +1,8 @@
-public class T1Thread extends Thread {
+package Subtask1.Task1;
+
+public class MyThread extends Thread {
     private int n;
-    public T1Thread(int n) {
+    public MyThread(int n) {
         this.n = n;
     }
 
